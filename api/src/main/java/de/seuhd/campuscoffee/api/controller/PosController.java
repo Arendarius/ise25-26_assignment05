@@ -47,7 +47,7 @@ public class PosController {
     public ResponseEntity<PosDto> getByName(
             @PathVariable String name) {
         return ResponseEntity.ok(
-            posDtoMapper.fromDomain(posServicee.getByName(name))
+            posDtoMapper.fromDomain(posService.getByName(name))
         );
     }
 

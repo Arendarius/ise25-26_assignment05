@@ -92,7 +92,12 @@ public class CucumberPosSteps {
     }
 
     // TODO: Add Given step for new scenario
+    @Given("pos list size =3")
+    public void posListSize3() {
+        List<PosDto> retrievedPosList = retrievePos();
+        assertThat(retrievedPosList).size().isEqualTo(3);
 
+    }
     // When -----------------------------------------------------------------------
 
     @When("I insert POS with the following elements")
@@ -102,7 +107,10 @@ public class CucumberPosSteps {
     }
 
     // TODO: Add When step for new scenario
-
+    @When("Update one of three existing pos")
+    public void updateOneOfThreeExistingPos() {
+    upsertPoslist.get(Pos pos)();
+    }
     // Then -----------------------------------------------------------------------
 
     @Then("the POS list should contain the same elements in the same order")
@@ -114,4 +122,8 @@ public class CucumberPosSteps {
     }
 
     // TODO: Add Then step for new scenario
+    @Then("the pos is updated")
+    public void thePosIsUpdated() {
+        List<PosDto> retrievedPosList = retrievePos();
+    }
 }
